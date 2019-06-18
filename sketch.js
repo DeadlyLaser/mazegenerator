@@ -10,33 +10,52 @@ function Create2DArray(rows, cols) {
 
 //global variables
 let grid;
-let rows = 10;
-let cols = 10;
-let cellWidht = 50;
+let rows = 20;
+let cols = 20;
+let cellWidht = 20;
 var canvasSizeX = cols * cellWidht + 10;
 var canvasSizeY = rows * cellWidht + 10;
+var currentCell;
+var stack = [];
 
 
 
 function setup() {
+  frameRate(60);
   grid = Create2DArray(rows, cols);
   createCanvas(canvasSizeX, canvasSizeY);
 
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
       grid[i][j] = new Cell(i, j, cellWidht);
-
     }
   }
+  console.log(grid)
+  currentCell = grid[0][0];
 }
 
 
 function draw() {
+  //draw the grid
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      //grid[i][j].ActiveCell();
       grid[i][j].Show();
     }
+  }
+
+  // generate maze
+  currentCell.visited = true;
+  currentCell.LightUp();
+
+  nextCell = currentCell.NearCells();
+
+  if (nextCell) {
+    stack.push(currentCell)
+    currentCell.RemoveWalls(currentCell, nextCell);
+    currentCell = nextCell;
+  }
+  else if (stack.length > 0) {
+    currentCell = stack.pop();
   }
 
 
