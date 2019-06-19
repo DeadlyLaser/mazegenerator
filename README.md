@@ -1,9 +1,10 @@
 # mazegenerator
 
-**Under Construction**
 
-part 1:visual maze generator
-
-part 2 : genetic algorithm autosolver.
+**Visual Maze generator: Done (masterbranch)
 
 https://deadlylaser.github.io/mazegenerator/
+
+**genetic Algorithm : WIP
+
+
