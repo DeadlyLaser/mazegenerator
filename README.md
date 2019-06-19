@@ -1,10 +1,10 @@
 # mazegenerator
 
 
-**Visual Maze generator: Done (masterbranch)
+Visual Maze generator: Done (masterbranch)
 
 https://deadlylaser.github.io/mazegenerator/
 
-**genetic Algorithm : WIP
+genetic Algorithm : WIP
 
 
