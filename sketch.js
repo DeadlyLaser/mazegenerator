@@ -32,9 +32,9 @@ function generateMaze() {
 
 //global variables
 let grid;
-let rows = 20;
-let cols = 20;
-let cellWidht = 20;
+let rows = 50;
+let cols = 50;
+let cellWidht = 25;
 var canvasSizeX = cols * cellWidht + 10;
 var canvasSizeY = rows * cellWidht + 10;
 var currentCell;
