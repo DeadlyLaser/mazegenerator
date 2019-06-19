@@ -16,11 +16,12 @@ class Cell {
 
     // draw the cell on the screen
     Show() {
-        stroke(0);
+        stroke(255);
+        strokeWeight(4);
         this.DrawWalls();
         if (this.visited) {
             noStroke();
-            fill(128);
+            fill(50);
             rect(this.x, this.y, this.cellWidht, this.cellWidht);
         }
 
