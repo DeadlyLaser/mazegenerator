@@ -8,6 +8,28 @@ function Create2DArray(rows, cols) {
   return arr;
 }
 
+function generateMaze() {
+  // generate maze
+  do {
+    var g = 0;
+    g++;
+    currentCell.visited = true;
+
+    nextCell = currentCell.NearCells();
+
+    if (nextCell) {
+      stack.push(currentCell)
+      currentCell.RemoveWalls(currentCell, nextCell);
+      currentCell = nextCell;
+    }
+    else if (stack.length > 0) {
+      currentCell = stack.pop();
+    }
+  } while (stack.length>0 || currentCell.NearCells());
+}
+
+
+
 //global variables
 let grid;
 let rows = 20;
@@ -21,7 +43,7 @@ var stack = [];
 
 
 function setup() {
-  frameRate(60);
+  frameRate(10);
   grid = Create2DArray(rows, cols);
   createCanvas(canvasSizeX, canvasSizeY);
 
@@ -32,6 +54,7 @@ function setup() {
   }
   console.log(grid)
   currentCell = grid[0][0];
+  generateMaze();
 }
 
 
@@ -42,23 +65,6 @@ function draw() {
       grid[i][j].Show();
     }
   }
-
-  // generate maze
-  currentCell.visited = true;
-  currentCell.LightUp();
-
-  nextCell = currentCell.NearCells();
-
-  if (nextCell) {
-    stack.push(currentCell)
-    currentCell.RemoveWalls(currentCell, nextCell);
-    currentCell = nextCell;
-  }
-  else if (stack.length > 0) {
-    currentCell = stack.pop();
-  }
-
-
 }
 
 
