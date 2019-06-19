@@ -24,13 +24,13 @@ function setup() {
   frameRate(60);
   grid = Create2DArray(rows, cols);
   createCanvas(canvasSizeX, canvasSizeY);
+  background(153);
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       grid[i][j] = new Cell(i, j, cellWidht);
     }
   }
-  console.log(grid)
   currentCell = grid[0][0];
 }
 
