@@ -10,9 +10,9 @@ function Create2DArray(rows, cols) {
 
 //global variables
 let grid;
-let rows = 20;
-let cols = 20;
-let cellWidht = 20;
+let rows = 100;
+let cols = 100;
+let cellWidht = 50;
 var canvasSizeX = cols * cellWidht + 10;
 var canvasSizeY = rows * cellWidht + 10;
 var currentCell;
